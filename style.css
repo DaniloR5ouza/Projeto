@@ -1,0 +1,236 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Memorando Sobre O Conteúdo Acima
+O comando * é um seletor universal, que faz com que todos os elementos do site sejam afetados pela regra datada, e o comando box-sizing: border-box; faz com que a largura e altura dos elementos sejam calculadas incluindo o padding e a borda, e não apenas o conteúdo.
+O comando margin: 0; faz com que todos os elementos do site tenham uma margem de 0, e o comando padding: 0; faz com que todos os elementos do site tenham um preenchimento de 0.
+Isto é meio que um reset de css, que faz com que todos os elementos do site tenham uma aparência padrão, e não uma aparência diferente dependendo do navegador que está sendo usado.
+*/
+
+
+:root { 
+  --text-color: white;
+  --bg-url: url(./Theme/planofundodragon.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./Theme/botaotop.png);
+}
+
+.light { 
+  --text-color: rgb(0, 0, 0);
+  --bg-url: url(./Theme/planofundodragon-white.png);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./Theme/botaotopdia.png);
+}
+
+body * {
+.zeyada-regular 
+  font-family: "Zeyada", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color:var(--text-color);
+}
+/*Explicando o código acima
+O comando body * faz com que todos os elementos dentro do body sejam afetados pela regra datada, e o comando font-family: "Zeyada", cursive; faz com que todos os elementos dentro do body tenham a fonte Zeyada, e caso a fonte Zeyada não esteja disponível, a fonte cursive será usada.
+*/
+/* ANOTAÇÕES DE AULA - MEMORIZAR (Estas anotações são memorando).
+O asterisco (*) é um seletor universal, que faz com que todos os elementos do site sejam afetados pela regra datada, e o comando body * faz com que todos os elementos dentro do body sejam afetados pela regra dada.*/ 
+
+body {
+ /* background-image: url(./Theme/bg-mobile.jpg);
+  backgroud-repeat: no-repeat;
+  background-position:top center;
+  background-size: cover;
+  (O comando acima é o mesmo que o comando abaixo, mas de forma resumida)
+  \*/ 
+  background: var(--bg-url) no-repeat center top/cover;
+}
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+}
+/*Explicando o código acima
+O comando width: 360px; faz com que o elemento com o id container tenha uma largura de 360px, e o comando border: 1px solid #d80000; faz com que o elemento com o id container tenha uma borda de 1px sólida com a cor #d80000, e o comando margin: auto; faz com que o elemento com o id container fique centralizado na tela, e o comando margin-top: 56px; faz com que o elemento com o id container tenha uma margem superior de 56px.
+*/
+
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  magin-top: 8px;
+}
+
+/*Memorando 
+Sempre lembrar que quando for alterar algo em Profile ou quaisquer outra pasta, sempre colocar o comando de id (#) antes do nome da pasta, porque o comando de id (#) faz com que a regra dada seja aplicada apenas ao elemento com o id especificado, e não a todos os elementos com o mesmo nome.*/
+
+#profile {
+  
+  text-align: center;
+  padding: 24px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+#profile img {
+  width: 112px;
+}
+/*
+em css não precisa colocar tag height, porque o css já entende que o tamanho do conteúdo é a dimensão certa da caixa.
+*/
+
+ul  {
+  list-style: none;
+  
+ display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+/*Explicando o código acima
+Gap é um comando que faz com que crie um espaço entre os elementos dentro do ul, e o comando list-style: none; faz com que os elementos dentro do ul não tenham nenhum estilo de lista, ou seja, não terão nenhum marcador de lista.
+Existe o Row e o Column, o Row faz com que os elementos dentro do ul sejam exibidos em uma linha, e o Column faz com que os elementos dentro do ul sejam exibidos em uma coluna.
+O Row é o padrão do display flex.
+*/
+
+ul li a {
+display: flex;
+align-items: center;
+justify-content: center;
+
+padding: 16px 24px;
+
+background: var(--surface-color);
+border: 1px solid var(--stroke-color);
+border-radius: 8px;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+text-decoration: none;
+font-weight: 500;
+transition: background 0.2s;
+}
+/*Explicando o código acima
+O comando display: flex; faz com que os elementos dentro do ul sejam exibidos em uma linha, e o comando align-items: center; faz com que os elementos dentro do ul sejam alinhados verticalmente ao centro, e o comando justify-content: center; faz com que os elementos dentro do ul sejam alinhados horizontalmente ao centro.
+E o padding: 16px 24px; faz com que os elementos dentro do ul tenham um preenchimento de 16px na parte superior e inferior, e 24px na parte esquerda e direita.  
+border radius faz com que os elementos dentro do ul tenham uma borda arredondada, e o backdrop-filter: blur(4px); faz com que os elementos dentro do ul tenham um efeito de desfoque, e o -webkit-backdrop-filter: blur(4px); faz com que os elementos dentro do ul tenham um efeito de desfoque no navegador Safari.
+*/
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+display: flex;
+justify-content: center;
+
+padding: 24px 0;
+
+font-size: 24px;
+}
+
+#social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer{
+  padding:24px 0;
+  text-align: center;
+  font-size: 24px;
+}
+/*Explicando o Código Acima
+  Footer é para colocar um rodapé.
+
+*/
+
+/* ANOTAÇÕES DE AULA - MEMORIZAR DISPLAY FLEX
+display: column; faz com que os elementos dentro do ul sejam exibidos em uma coluna, e o gap: 8px; faz com que haja um espaço de 8px entre os elementos dentro do ul.
+list -style: none; faz com que os elementos dentro do ul não tenham nenhum estilo de lista, ou seja, não terão nenhum marcador de lista.
+ul li faz com que a regra dada seja aplicada apenas aos elementos li dentro do ul, e não a todos os elementos li do site.
+*/
+
+
+/* ANOTAÇÕES DE AULA - MEMORIZAR #1 (Estas anotações são memorizando).
+
+Existem existem 2 tipos de display, inline e block, o inline é quando o elemento fica na mesma linha, e o block é quando o elemento ocupa toda a largura da tela, e vai para a próxima linha.
+
+Temos que imaginar que o display é como se fosse uma caixa, e o conteúdo dentro dessa caixa é o conteúdo do elemento.
+Cada conteúdo possui sua própria caixa, e cada caixa possui sua própria dimensão, e cada dimensão possui sua própria largura e altura.
+Ao exportar uma imagem, temos que prestar atenção na dimensão para que dispositivos diferentes não fiquem com a imagem distorcida, sempre prezar pela qualidade da imagem, e não pelo tamanho da imagem, porque o tamanho da imagem é relativo ao dispositivo que está sendo usado.
+
+Comandos para se atentar
+Cada comando possui um peso, e o comando mais importante é o comando de id, depois o comando de classe, e por último o comando de tag.
+o ./ serve para indicar que o arquivo está na mesma pasta do arquivo que está sendo editado, e o ../ serve para indicar que o arquivo está em uma pasta acima do arquivo que está sendo editado.
+
+Sempre colocar o comando de link do css dentro da tag head, e nunca dentro da tag body, porque o comando de link do css é um comando de configuração, e o comando de configuração deve estar dentro da tag head, e não dentro da tag body.
+
+Não esquecer de coisas simples, como a pasta index.html são os códigos fontes, que permitem que o site funcione, e a pasta Theme são as imagens que o site vai usar, e a pasta style.css é o arquivo de estilo que vai deixar o site bonito.
+
+Oque colocar na tag head:
+Na tag head, colocar o comando de link do css, e o comando de title, que é o título do site, e o comando de meta charset, que é o tipo de codificação do site, e o comando de meta viewport, que é a configuração da tela do site.
+
+Oque colocar na tag body:
+Na tag body, colocar o conteúdo do site, que é o que vai aparecer na tela do site.
+
+
+ANOTAÇÕES DE AULA - MEMORIZAR #2
+Os comandos como margin e padding, seguem uma lógica de 4 valores, top, right, bottom, left.
+Funcionando da seguinte forma:
+margin: 10px 20px 30px 40px;
+Deste modo podemos simplificar o código, sem precisar colocar um por um, Podemos colocar os valores de 1 a 4, os valores são aplicados no sentido horario, cima, direita, baixo, esquerda.
+#1 - Caso seja colocado apenas 3 valores, o primeiro valor é aplicado no top, o segundo valor é aplicado no right e left, e o terceiro valor é aplicado no bottom.
+#2 - Caso seja colocado apenas 2 valores, o primeiro valor é aplicado no top e bottom, e o segundo valor é aplicado no right e left.
+*/
